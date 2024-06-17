@@ -1,12 +1,13 @@
 {
   "name": "khrm-uix",
   "private": false,
-  "version": "0.0.11",
+  "version": "0.0.12",
   "type": "module",
+  "main": "dist/khrm-ui.umd.js",
+  "module": "dist/khrm-ui.es.js",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
       "import": "./dist/khrm-ui.es.js",
       "require": "./dist/khrm-ui.umd.js"
     },
