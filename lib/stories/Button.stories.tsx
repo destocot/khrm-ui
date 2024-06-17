@@ -74,6 +74,10 @@ export const Success: Story = {
   args: { variant: "success" },
 };
 
+export const Pending: Story = {
+  args: { isPending: true },
+};
+
 export const Small: Story = {
   args: { size: "sm" },
 };

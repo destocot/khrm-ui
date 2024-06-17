@@ -554,6 +554,10 @@ video {
   --tw-contain-style:  ;
 }
 
+.khrm-ui-mr-2 {
+  margin-right: 0.5rem;
+}
+
 .khrm-ui-inline-flex {
   display: inline-flex;
 }
@@ -570,8 +574,26 @@ video {
   height: 2.25rem;
 }
 
+.khrm-ui-h-4 {
+  height: 1rem;
+}
+
 .khrm-ui-w-10 {
   width: 2.5rem;
+}
+
+.khrm-ui-w-4 {
+  width: 1rem;
+}
+
+@keyframes khrm-ui-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.khrm-ui-animate-spin {
+  animation: khrm-ui-spin 1s linear infinite;
 }
 
 .khrm-ui-items-center {
