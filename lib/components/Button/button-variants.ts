@@ -43,8 +43,7 @@ export const buttonVariants = cva(
           khrm-ui-bg-[rgb(255,255,255)] 
           hover:khrm-ui-bg-[rgb(242,242,242)] 
           hover:khrm-ui-text-[rgb(26,26,26)]`,
-        secondary: ` color
-
+        secondary: `
           khrm-ui-bg-[rgb(242,242,242)] 
           khrm-ui-text-[rgb(26,26,26)] 
           hover:khrm-ui-bg-[rgba(242,242,242,0.8)]
@@ -54,9 +53,9 @@ export const buttonVariants = cva(
           hover:khrm-ui-text-[rgb(26,26,26)]
           `,
         link: `
-        khrm-ui-text-[rgb(26,26,26)] 
-        khrm-ui-underline-offset-4 
-        hover:khrm-ui-underline
+          khrm-ui-text-[rgb(26,26,26)] 
+          khrm-ui-underline-offset-4 
+          hover:khrm-ui-underline
         `,
         warning: `
           khrm-ui-bg-[rgb(245,159,10)] 
