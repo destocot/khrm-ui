@@ -25,7 +25,7 @@ export const buttonVariants = cva(
         default: `
           khrm-ui-bg-[rgb(26,26,26)] 
           khrm-ui-text-[#fafafa] 
-          khrm-ui-hover:bg-[rgba(26,26,26,0.9)]
+          hover:khrm-ui-bg-[rgba(26,26,26,0.9)]
           `,
         primary: `
           khrm-ui-bg-[rgb(59,130,246)]
