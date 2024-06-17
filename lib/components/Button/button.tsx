@@ -4,7 +4,7 @@ import { buttonVariants, ButtonVariants } from "./button-variants";
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
   ButtonVariants & {
-    icon?: React.ElementType;
+    icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
     isPending?: boolean;
   };
 
@@ -15,10 +15,10 @@ export function Button({
   size,
   isPending,
   disabled,
-  icon,
+  icon: Icon,
   ...props
 }: ButtonProps) {
-  const Icon = icon ?? LoaderIcon;
+  const ActualIcon = Icon ?? LoaderIcon;
 
   return (
     <button
@@ -28,7 +28,7 @@ export function Button({
     >
       {isPending || disabled ? (
         <>
-          <Icon className="khrm-ui-h-4 khrm-ui-w-4 khrm-ui-animate-spin khrm-ui-mr-2" />{" "}
+          <ActualIcon className="khrm-ui-h-4 khrm-ui-w-4 khrm-ui-animate-spin khrm-ui-mr-2" />{" "}
           {children}
         </>
       ) : (
