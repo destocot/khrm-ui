@@ -9,8 +9,8 @@ export default defineConfig({
     react(),
     dts({
       include: ["lib"],
-      exclude: ["lib/stories/**"],
-      insertTypesEntry: true,
+      exclude: ["**/*.stories.ts", "**/*.stories.tsx"],
+      rollupTypes: true,
     }),
   ],
   build: {

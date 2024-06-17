@@ -1,7 +1,7 @@
 {
   "name": "khrm-uix",
   "private": false,
-  "version": "0.0.13",
+  "version": "0.0.14",
   "type": "module",
   "main": "dist/khrm-ui.umd.js",
   "module": "dist/khrm-ui.es.js",
