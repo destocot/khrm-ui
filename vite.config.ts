@@ -5,7 +5,10 @@ import dts from "vite-plugin-dts";
 import { peerDependencies } from "./package.json";
 
 export default defineConfig({
-  plugins: [react(), dts({ rollupTypes: true })],
+  plugins: [
+    react(),
+    dts({ exclude: ["**/*.stories.ts", "**/*.stories.tsx", "**/*.test.ts"] }),
+  ],
   build: {
     emptyOutDir: true,
     copyPublicDir: false,
