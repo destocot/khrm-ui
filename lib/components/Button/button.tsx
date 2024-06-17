@@ -1,10 +1,11 @@
+import React from "react";
 import { cn } from "../../utils";
 import { LoaderIcon } from "../Icons";
 import { buttonVariants, ButtonVariants } from "./button-variants";
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
   ButtonVariants & {
-    icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+    icon?: React.ReactElement;
     isPending?: boolean;
   };
 
@@ -15,11 +16,9 @@ export function Button({
   size,
   isPending,
   disabled,
-  icon: Icon,
+  icon,
   ...props
 }: ButtonProps) {
-  const ActualIcon = Icon ?? LoaderIcon;
-
   return (
     <button
       disabled={disabled || isPending}
@@ -28,11 +27,15 @@ export function Button({
     >
       {isPending || disabled ? (
         <>
-          <ActualIcon className="khrm-ui-h-4 khrm-ui-w-4 khrm-ui-animate-spin khrm-ui-mr-2" />{" "}
+          {icon ? (
+            icon
+          ) : (
+            <LoaderIcon className="khrm-ui-animate-spin khrm-ui-mr-2 khrm-ui-h-5 khrm-ui-w-5" />
+          )}{" "}
           {children}
         </>
       ) : (
-        children
+        <>{children}</>
       )}
     </button>
   );
