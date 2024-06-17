@@ -5,7 +5,14 @@ import dts from "vite-plugin-dts";
 import { peerDependencies } from "./package.json";
 
 export default defineConfig({
-  plugins: [react(), dts({ exclude: ["**/*.stories.tsx"] })],
+  plugins: [
+    react(),
+    dts({
+      include: ["lib"],
+      exclude: ["lib/stories/**"],
+      insertTypesEntry: true,
+    }),
+  ],
   build: {
     emptyOutDir: true,
     lib: {
