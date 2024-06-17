@@ -9,7 +9,7 @@ export default defineConfig({
   build: {
     emptyOutDir: true,
     lib: {
-      entry: resolve(__dirname, "lib/index.ts"),
+      entry: resolve(__dirname, "/lib/index.ts"),
       name: "khrm-ui",
       fileName: (format) => `khrm-ui.${format}.js`,
       formats: ["es", "cjs", "umd"],
