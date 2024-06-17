@@ -15,6 +15,7 @@ export default defineConfig({
   ],
   build: {
     emptyOutDir: true,
+    copyPublicDir: false,
     lib: {
       entry: resolve(__dirname, "/lib/index.ts"),
       name: "khrm-ui",
