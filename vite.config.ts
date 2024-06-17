@@ -2,22 +2,20 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { resolve } from "node:path";
 import dts from "vite-plugin-dts";
-import tailwindcss from "tailwindcss";
+import { peerDependencies } from "./package.json";
 
 export default defineConfig({
-  plugins: [react(), dts({ include: ["lib"], insertTypesEntry: true })],
-  css: { postcss: { plugins: [tailwindcss] } },
+  plugins: [react(), dts({ exclude: ["**/*.stories.tsx"] })],
   build: {
-    copyPublicDir: false,
-    emptyOutDir: true,
     lib: {
-      entry: resolve(__dirname, "lib/main.ts"),
-      name: "KHRM UI",
-      formats: ["es", "umd"],
-      fileName: "khrm-ui",
+      entry: resolve(__dirname, "lib/index.ts"),
+      name: "khrm-ui",
+      fileName: (format) => `khrm-ui.${format}.js`,
+      formats: ["es", "cjs", "umd"],
     },
     rollupOptions: {
-      external: ["react", "react-dom", "react/jsx-runtime", "tailwindcss"],
+      external: Object.keys(peerDependencies),
+      output: { globals: { react: "React", "react-dom": "ReactDOM" } },
     },
   },
 });

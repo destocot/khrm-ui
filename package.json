@@ -1,26 +1,31 @@
 {
   "name": "khrm-uix",
-  "private": false,
-  "version": "0.0.1",
-  "main": "dist/khrm-ui.umd.js",
-  "module": "dist/khrm-ui.mjs",
-  "types": "dist/main.d.ts",
+  "private": true,
+  "version": "0.0.6",
+  "type": "module",
+  "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/main.d.ts",
-      "import": "./dist/khrm-ui.mjs",
+      "import": "./dist/khrm-ui.es.js",
       "require": "./dist/khrm-ui.umd.js"
     },
-    "./dist/style.css": "./dist/style.css"
+    "./styles.css": {
+      "require": "./dist/styles.css",
+      "default": "./dist/styles.css"
+    }
   },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsc && vite build",
+    "build": "tsc && vite build && npm run build:css",
+    "build:css": "tailwindcss -m -i ./lib/tailwind-entry.css -o ./dist/style.css",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "storybook": "concurrently 'npm run storybook:css' 'storybook dev -p 6006'",
+    "storybook:css": "tailwindcss -w -i ./lib/tailwind-entry.css -o ./lib/index.css",
+    "build-storybook": "concurrently 'npm run build-storybook:css' 'storybook build'",
+    "build-storybook:css": "tailwindcss -m -i ./lib/tailwind-entry.css -o ./lib/index.css",
+    "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
     "react": "^18.2.0",
@@ -45,6 +50,7 @@
     "autoprefixer": "^10.4.19",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "concurrently": "^8.2.2",
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
@@ -56,8 +62,5 @@
     "typescript": "^5.2.2",
     "vite": "^5.2.0",
     "vite-plugin-dts": "^3.9.1"
-  },
-  "directories": {
-    "lib": "lib"
   }
 }
