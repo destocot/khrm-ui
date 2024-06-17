@@ -7,6 +7,7 @@ import { peerDependencies } from "./package.json";
 export default defineConfig({
   plugins: [react(), dts({ exclude: ["**/*.stories.tsx"] })],
   build: {
+    emptyOutDir: true,
     lib: {
       entry: resolve(__dirname, "lib/index.ts"),
       name: "khrm-ui",

@@ -1,7 +1,7 @@
 {
   "name": "khrm-uix",
   "private": false,
-  "version": "0.0.6",
+  "version": "0.0.7",
   "type": "module",
   "types": "dist/index.d.ts",
   "exports": {
@@ -19,7 +19,7 @@
   ],
   "scripts": {
     "build": "tsc && vite build && npm run build:css",
-    "build:css": "tailwindcss -m -i ./lib/tailwind-entry.css -o ./dist/style.css",
+    "build:css": "tailwindcss -m -i ./lib/tailwind-entry.css -o ./dist/styles.css",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "storybook": "concurrently 'npm run storybook:css' 'storybook dev -p 6006'",
     "storybook:css": "tailwindcss -w -i ./lib/tailwind-entry.css -o ./lib/index.css",
